@@ -1,0 +1,31 @@
+{
+  "analyses": [
+    {
+      "analysis": "dc",
+      "param": {
+        "triggerToTrigger": true
+      },
+      "performOnServer": false
+    },
+    {
+      "analysis": "airGap",
+      "param": {
+        "threshold": 10,
+        "regimeParam": []
+      },
+      "performOnServer": false
+    }
+  ],
+  "f1": 0.0,
+  "f2": 0.0,
+  "filter": false,
+  "filterType": "Lowpass",
+  "integration": "Do not integrate",
+  "intercept": 0.0,
+  "label": "SEN000",
+  "order": 0,
+  "physicalChannel": 0,
+  "samplingRate": 2048,
+  "saveTodBase": true,
+  "slope": 1.0
+}

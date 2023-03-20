@@ -1,0 +1,64 @@
+{
+  "analyses": [
+    {
+      "analysis": "snA&Ph",
+      "param": {
+        "amplitude": false,
+        "harmonic": 1
+      },
+      "performOnServer": false
+    },
+    {
+      "analysis": "snA&Ph",
+      "param": {
+        "amplitude": false,
+        "harmonic": 2
+      },
+      "performOnServer": false
+    },
+    {
+      "analysis": "snA&Ph",
+      "param": {
+        "amplitude": false,
+        "harmonic": 3
+      },
+      "performOnServer": false
+    },
+    {
+      "analysis": "rms",
+      "param": {
+        "averagePerRevolution": false,
+        "filterParam": {
+          "f1": 0.0,
+          "f2": 0.0,
+          "filter": false,
+          "order": 0,
+          "type": "Lowpass"
+        },
+        "glide": false,
+        "labelAddition": "",
+        "numOfPoints": 0,
+        "substractDc": false,
+        "triggerToTrigger": false
+      },
+      "performOnServer": false
+    },
+    {
+      "analysis": "rest",
+      "amplitude": false,
+      "performOnServer": false      
+    }
+  ],
+  "f1": 2.0,
+  "f2": 0.0,
+  "filter": true,
+  "filterType": "Highpass",
+  "integration": "Integrate once",
+  "intercept": 0,
+  "label": "SEN000",
+  "order": 0,
+  "physicalChannel": 0,
+  "samplingRate": 2048,
+  "saveTodBase": true,
+  "slope": 20000
+}

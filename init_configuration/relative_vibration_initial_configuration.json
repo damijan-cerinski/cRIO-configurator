@@ -1,0 +1,90 @@
+{
+  "analyses": [
+    {
+      "analysis": "snA&Ph",
+      "param": {
+        "amplitude": true,
+        "harmonic": 1
+      },
+      "performOnServer": false
+    },
+    {
+      "analysis": "snA&Ph",
+      "param": {
+        "amplitude": true,
+        "harmonic": 2
+      },
+      "performOnServer": false
+    },
+    {
+      "analysis": "snA&Ph",
+      "param": {
+        "amplitude": true,
+        "harmonic": 3
+      },
+      "performOnServer": false
+    },
+    {
+      "analysis": "dc",
+      "param": {
+        "triggerToTrigger": true
+      },
+      "performOnServer": false
+    },
+    {
+      "analysis": "eqPeak",
+      "param": {
+        "averagePerRevolution": false,
+        "filterParam": {
+          "f1": 0.0,
+          "f2": 0.0,
+          "filter": false,
+          "order": 0,
+          "type": "Lowpass"
+        },
+        "glide": false,
+        "labelAddition": "",
+        "numOfPoints": 0,
+        "triggerToTrigger": false
+      },
+      "performOnServer": false
+    },
+    {
+      "analysis": "peak2peak",
+      "param": {
+        "averagePerRevolution": false,
+        "filterParam": {
+          "f1": 100.0,
+          "f2": 0.0,
+          "filter": false,
+          "order": 0,
+          "type": "Lowpass"
+        },
+        "glide": false,
+        "labelAddition": "",
+        "numOfPoints": 5,
+        "triggerToTrigger": false
+      },
+      "performOnServer": false
+    },
+    {
+      "analysis": "rest",
+      "param":{
+        "amplitude": true
+      },
+      "performOnServer": false      
+    }
+  ],
+  "f1": 0,
+  "f2": 0,
+  "filter": false,
+  "filterType": "Lowpass",
+  "integration": "Do not integrate",
+  "intercept": 1000,
+  "label": "SEN000",
+  "order": 0,
+  "physicalChannel": 0,
+  "samplingRate": 2048,
+  "saveTodBase": true,
+  "slope": 300
+}

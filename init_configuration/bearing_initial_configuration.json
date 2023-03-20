@@ -1,0 +1,43 @@
+{
+    "analyses": [
+      {
+        "analysis": "Smax",
+        "param": {
+          "filterParam": {
+            "f1": 100,
+            "f2": 0,
+            "filter": false,
+            "order": 0,
+            "type": "Lowpass"
+          },
+          "averagePerRevolution": false,
+          "glide": false,
+          "labelAddition": "",
+          "numOfPoints": 5,
+          "triggerToTrigger": false
+        },
+        "performOnServer": false
+      },
+      {
+        "analysis": "SP2Pmax",
+        "param": {
+          "filterParam": {
+            "f1": 100,
+            "f2": 0,
+            "filter": false,
+            "order": 0,
+            "type": "Lowpass"
+          },
+          "averagePerRevolution": false,
+          "glide": false,
+          "labelAddition": "",
+          "numOfPoints": 5,
+          "triggerToTrigger": false
+        },
+        "performOnServer": false
+      }
+    ],
+    "label": "BRG000",
+    "rotate": false,
+    "rotationAngle": 0
+  }
