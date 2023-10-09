@@ -15,13 +15,14 @@ class UnsignedIntegerEntry(Entry):
 
     def validate(self):
         try:
-            val = int(Entry.get(self))
+            val = int(float(Entry.get(self)))
             if val < 0:
                 self.delete(0, 'end')
                 self.insert(0, self.old)
         except ValueError:
             self.delete(0, 'end')
             self.insert(0, self.old)
+
 
     def focus_in(self, e):
         self.old = Entry.get(self)
@@ -36,7 +37,7 @@ class UnsignedIntegerEntry(Entry):
     def get(self):
         self.validate()
         try:
-            val = int(Entry.get(self))
+            val = int(float(Entry.get(self)))
         except ValueError:
             val = None
         return val
