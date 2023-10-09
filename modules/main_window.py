@@ -5,16 +5,16 @@ from json import dumps, dump, loads, load
 from typing import ItemsView
 from .loading import LoadingProcess, OpenProcess
 from .uploading import UploadingProcess
-from .interfaces import AirGapPlaneInterface, BearingInterface, ChannelAnalysisAirGap, ChannelAnalysisRpm, UnsignedIntegerInterface, ChannelInterface
+from .interfaces import AirGapPlaneInterface, BearingInterface, ChannelAnalysisAirGap, ChannelAnalysisRpm, UnsignedIntegerInterface, ChannelInterface, FloatInterface
 from .interfaces import TempJsonEditor, UnitInterface, ChannelAnalysisDC
 from .interfaces import ChannelAnalysisRms, NoParameterAnalysis, ChannelAnalysisRest
 from .interfaces import ChannelAnalysisHarmonic, UnitAnalysisRpm, UnitAnalysisPowers
-from .interfaces import PeakAnalysis, RegimeInterface, AlarmInterface, IpFrame, ModbusSentInterface
+from .interfaces import PeakAnalysis, RegimeInterface, AlarmInterface, IpFrame
+from .interfaces import Progress, ModbusSentInterface
 from .label_name_pairs import Label_name_pairs, TableType
 from .codis_enums import BearingAnalyses, Unit, Source, UnitAnalyses, ChannelAnalyses
 from .tree_items import Item, ItemType
 from requests import get, codes
-from .interfaces import Progress
 from .simple_input_widgets import IpIntegerEntry
 from .misc_string import get_channel_list_info, get_alarms_list_info, get_regimes_list_info
 from .misc_string import get_air_gap_planes_list_info, get_bearing_planes_list_info
@@ -829,7 +829,7 @@ class Main_window(Frame):
                 #following line disables root window, which prevents
                 #opening of additional subinterfaces
                 self.master.wm_attributes("-disabled", True)
-                UnsignedIntegerInterface(
+                FloatInterface(
                     title = "Slope:",
                     callback = self.subinterface_callback,
                     cancel_callback = self.cancel_callback,
@@ -841,7 +841,7 @@ class Main_window(Frame):
                 #following line disables root window, which prevents
                 #opening of additional subinterfaces
                 self.master.wm_attributes("-disabled", True)
-                UnsignedIntegerInterface(
+                FloatInterface(
                     title = "Intercept:",
                     callback = self.subinterface_callback,
                     cancel_callback = self.cancel_callback,

@@ -87,6 +87,72 @@ class UnsignedIntegerInterface(Toplevel):
         self.destroy()
 
 
+class FloatInterface(Toplevel):
+
+    def __init__(
+        self,
+        x,
+        y,
+        init_value = '',
+        title = '',
+        callback = None,
+        cancel_callback = None
+    ):
+        Toplevel.__init__(self)
+        self.callback = callback
+        self.cancel_callback = cancel_callback
+        self.protocol('WM_DELETE_WINDOW', self.x_button)
+        #This line removes title bar. It is OS dependent.
+        self.wm_overrideredirect(True)
+        self.border_frame = Frame(
+            self,
+            borderwidth = 2,
+            relief = FLAT,
+            bg = 'gray'
+        )
+        self.content_frame = Frame(self.border_frame)
+        self.label = Label(self.content_frame, text = title)
+        self.num = FloatEntry(self.content_frame)
+        self.num.bind('<Key-Return>', self.return_pressed)
+        self.num.insert(0, init_value)
+        self.buttons_frame = Frame(self.content_frame)
+        self.ok_button = Button(
+            self.buttons_frame, text='Ok', command = self.ok_event
+        )
+        self.cancel_button = Button(
+            self.buttons_frame, text='Cancel', command = self.cancel_event
+        )
+        self.border_frame.pack(fill = BOTH, expand = 1)
+        self.content_frame.pack(fill = BOTH, expand = 1)
+        self.geometry(f'120x80+{x}+{y}')
+        self.resizable(False, False)
+        self.label.pack(side = TOP, anchor = 'w')
+        self.num.pack(side = TOP, fill = X, expand = 1)
+        self.buttons_frame.pack(side = TOP, fill = X)
+        self.ok_button.pack(side = RIGHT, expand = 1)
+        self.cancel_button.pack(side = RIGHT, expand = 1)
+        self.num.focus_set()
+
+    #Button command callback method doesn't have event param.
+    def ok_event(self):
+        if self.callback != None:
+            self.callback(self.num.get())
+            self.destroy()
+
+    def return_pressed(self, e):
+        if self.callback != None:
+            self.callback(self.num.get())
+            self.destroy()
+
+    def cancel_event(self):
+        self.cancel_callback()
+        self.destroy()
+    
+    def x_button(self):
+        self.cancel_callback()
+        self.destroy()
+
+
 class BearingInterface(Toplevel):
     
     def __init__(
