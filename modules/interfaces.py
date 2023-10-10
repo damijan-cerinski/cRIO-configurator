@@ -910,6 +910,14 @@ class AlarmInterface(Toplevel):
         self.alarm_priority = IntegerEntry(self.content_frame)
         if 'alarmPriority' in self.value:
             self.alarm_priority.insert(0, init_value['alarmPriority'])
+        self.alarm_logic_description_label = Label(
+            self.content_frame,
+            text = """Write signal names with quotation marks "signal name" or 'signal name'! For example:"""
+        )
+        self.alarm_logic_example_label = Label(
+            self.content_frame,
+            text = """"Unit rotational speed [rpm]" or 'Unit rotational speed [rpm]'"""
+        )
         self.buttons_frame = Frame(self.content_frame)
         self.ok_button = Button(
             self.buttons_frame, text='Ok', command = self.ok_event
@@ -926,6 +934,8 @@ class AlarmInterface(Toplevel):
         self.delay_entry.pack(side = TOP, fill = X, expand = 1)
         self.alarm_priority_label.pack(side = TOP, anchor = 'w')
         self.alarm_priority.pack(side = TOP, fill = X, expand = 1)
+        self.alarm_logic_description_label.pack(side = TOP, anchor = 'w')
+        self.alarm_logic_example_label.pack(side = TOP, anchor = 'w')
         self.buttons_frame.pack(side = TOP, fill = BOTH)
         self.ok_button.pack(side = RIGHT, expand = 1)
         self.cancel_button.pack(side = RIGHT, expand = 1)
