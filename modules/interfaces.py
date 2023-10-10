@@ -1317,7 +1317,7 @@ class UnitInterface(Toplevel):
             init_name = init_f
         )
         self.num_poles_label = Label(self.content_frame, text = "Number of poles:")
-        self.num_poles = Entry(self.content_frame)
+        self.num_poles = UnsignedIntegerEntry(self.content_frame)
         if 'numberOfPoles' in self.value:
             self.num_poles.insert(0, self.value['numberOfPoles'])
         else:
