@@ -9,7 +9,7 @@ from tkinter.ttk import Progressbar
 from .simple_input_widgets import UnsignedIntegerEntry, SelectorCombo
 from .simple_input_widgets import FloatEntry, IntegerEntry, IpIntegerEntry
 from .simple_input_widgets import SelectorList, Unsigned16bitIntegerEntry
-from .simple_input_widgets import AutocompleteEntry
+from .simple_input_widgets import AutocompleteEntry, UnsignedIntegerAlarmPriorityEntry
 from .label_name_pairs import Label_name_pairs
 from .codis_enums import FILTER_TYPE_LABEL_NAME_PAIRS, INTEGRATE_TYPE_LABEL_NAME_PAIRS
 from .codis_enums import REGISTER_TYPE_LABEL_NAME_PAIRS, MODBUS_DATA_TYPE_LABEL_NAME_PAIRS
@@ -907,7 +907,7 @@ class AlarmInterface(Toplevel):
             self.content_frame,
             text = "Alarm priority:"
         )
-        self.alarm_priority = IntegerEntry(self.content_frame)
+        self.alarm_priority = UnsignedIntegerAlarmPriorityEntry(self.content_frame)
         if 'alarmPriority' in self.value:
             self.alarm_priority.insert(0, init_value['alarmPriority'])
         self.alarm_logic_description_label = Label(

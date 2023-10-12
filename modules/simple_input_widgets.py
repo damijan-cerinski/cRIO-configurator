@@ -43,6 +43,45 @@ class UnsignedIntegerEntry(Entry):
         return val
 
 
+class UnsignedIntegerAlarmPriorityEntry(Entry):
+
+
+    def __init__(self, *args, **kwargs):
+        self.old = ''
+        Entry.__init__(self, *args, **kwargs)
+        self.bind('<FocusIn>', self.focus_in)
+        self.bind('<FocusOut>', self.focus_out)
+
+    def validate(self):
+        try:
+            val = int(float(Entry.get(self)))
+            if val < 0 or val > 5:
+                self.delete(0, 'end')
+                self.insert(0, self.old)
+        except ValueError:
+            self.delete(0, 'end')
+            self.insert(0, self.old)
+
+
+    def focus_in(self, e):
+        self.old = Entry.get(self)
+
+    def focus_out(self, e):
+        self.validate()
+
+    #Method overrides get method of the Entry class.
+    #Validation is done every time value is read.
+    #Ex. form is completed before UnsignedIntegerEntry
+    #object was focused out.
+    def get(self):
+        self.validate()
+        try:
+            val = int(float(Entry.get(self)))
+        except ValueError:
+            val = None
+        return val
+
+
 class Unsigned16bitIntegerEntry(Entry):
 
 
